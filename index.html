@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumple Suegrita</title>
+<style>
+    body {
+        background: linear-gradient(to bottom right, #fceabb, #f8b500);
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        font-size: 3em;
+        margin-top: 20px;
+        color: #8b0000;
+        animation: fadeIn 2s ease-in-out;
+    }
+    h2 {
+        color: #5c2a00;
+    }
+    .mensaje {
+        max-width: 800px;
+        margin: auto;
+        background: rgba(255,255,255,0.8);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        animation: fadeInUp 2s ease-in-out;
+    }
+    button {
+        background: #ff6f61;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        margin: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: transform 0.2s ease;
+    }
+    button:hover {
+        transform: scale(1.1);
+    }
+    .pregunta {
+        display: none;
+        margin-top: 20px;
+    }
+    .final {
+        display: none;
+        font-size: 1.5em;
+        color: #8b0000;
+        margin-top: 30px;
+        animation: fadeIn 3s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+<body>
+
+<h1>🎉 Feliz Cumpleaños 🎉</h1>
+<h2>Querida Lina</h2>
+
+<div class="mensaje">
+    <p>Hoy quiero celebrar no solo tu cumpleaños, sino también la increíble mujer que eres.  
+    Trabajadora, luchadora y siempre velando por el bienestar de tu hija, enseñándole valores que hoy la hacen brillar.  
+    Esos valores son también los que me han hecho admirarte profundamente.</p>
+
+    <p>Quiero aprovechar para pedirte perdón por cualquier momento incómodo que hayamos pasado en el pasado.  
+    La vida me ha enseñado muchas cosas, y al igual que tu hija, he aprendido a ser mejor.  
+    Aprecio tu paciencia, tu fuerza y tu dedicación.</p>
+
+    <p>Gracias por abrirme un lugar en tu vida y por ser un ejemplo constante.  
+    Espero que ahora y siempre todo esté lleno de alegría, salud y momentos hermosos junto a las personas que amas.</p>
+</div>
+
+<!-- Preguntas interactivas -->
+<div id="preguntas">
+    <div class="pregunta" id="q1">
+        <p>¿Cuál crees que es el mejor regalo que alguien puede darte?</p>
+        <button onclick="nextQuestion('q1','q2')">Tiempo y cariño</button>
+        <button onclick="nextQuestion('q1','q2')">Un viaje soñado</button>
+        <button onclick="nextQuestion('q1','q2')">Una carta sincera</button>
+    </div>
+
+    <div class="pregunta" id="q2">
+        <p>Si pudieras elegir un deseo para este año, sería...</p>
+        <button onclick="nextQuestion('q2','q3')">Salud y paz</button>
+        <button onclick="nextQuestion('q2','q3')">Momentos felices</button>
+        <button onclick="nextQuestion('q2','q3')">Amor y unión familiar</button>
+    </div>
+
+    <div class="pregunta" id="q3">
+        <p>¿Lista para leer el mensaje final?</p>
+        <button onclick="showFinal()">¡Sí!</button>
+    </div>
+</div>
+
+<!-- Mensaje final -->
+<div class="final" id="final">
+    ❤ Eres una persona invaluable. Hoy y siempre te deseo lo mejor. Cualquier regalo, bendicion o cosa linda que te pase o a los de tu alrededor es completamente merecida  
+    . Gracias por criar a una hija tan especial, a quien amo con todo mi corazón.  
+    ¡Feliz cumpleaños, con todo mi cariño y respeto! ❤
+</div>
+
+<audio id="musica" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3"></audio>
+
+<script>
+    // Música automática
+    window.onload = function() {
+        document.getElementById('musica').play().catch(()=>{});
+        document.getElementById('q1').style.display = 'block';
+    }
+
+    function nextQuestion(current, next) {
+        document.getElementById(current).style.display = 'none';
+        document.getElementById(next).style.display = 'block';
+    }
+
+    function showFinal() {
+        document.getElementById('q3').style.display = 'none';
+        document.getElementById('final').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
